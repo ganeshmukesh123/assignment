@@ -1,1 +1,62 @@
-<h1>github page</h1>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Assignment</title>
+		<style>
+			.btn {
+				display: block;
+				text-decoration: none;
+				background-color: #c31313;
+				padding: 5px;
+				margin: 5px;
+				max-width: 100px;
+				width: 100%;
+				text-align: center;
+				border: 1px solid #000;
+				color: #ffffff;
+			}
+			.menu-btn:checked ~ .menu-icon .navicon {
+				display: none;
+			}
+		</style>
+	</head>
+	<body>
+		<a href="javascript:void(0)" class="btn" data-image="black.jpeg">Black</a>
+		<a href="javascript:void(0)" class="btn" data-image="blue.jpeg">Blue</a>
+		<a href="javascript:void(0)" class="btn" data-image="gold.jpeg">Gold</a>
+		<a href="javascript:void(0)" class="btn" data-image="rose-gold.jpeg"
+			>RoseGold</a
+		>
+		<div class="image-render">
+			<img class="img-render" src="" alt="" />
+		</div>
+		<!-- <input class="menu-btn" type="checkbox" id="menu-btn" />
+		<label class="menu-icon" for="menu-btn">
+			<span class="navicon">hello</span>
+		</label>
+		<input class="menu-btn" type="checkbox" id="menu-btn1" />
+		<label class="menu-icon" for="menu-btn1">
+			<span class="navicon">hello1</span>
+		</label>
+		<input class="menu-btn" type="checkbox" id="menu-btn2" />
+		<label class="menu-icon" for="menu-btn2">
+			<span class="navicon">hello2</span>
+		</label>
+		<input class="menu-btn" type="checkbox" id="menu-btn3" />
+		<label class="menu-icon" for="menu-btn3">
+			<span class="navicon">hello3</span>
+		</label> -->
+<!-- 		<script src="index.js"></script> -->
+		<script>
+			var btn = document.querySelectorAll('.btn');
+			for (var i = 0; i < btn.length; i++) {
+				btn[i].addEventListener('click', function(e) {
+					// console.log(this.dataset.image);
+					document.querySelectorAll('.img-render')[0].src = this.dataset.image;
+				});
+			}
+		</script>
+	</body>
+</html>
