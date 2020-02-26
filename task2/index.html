@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Document</title>
+		<style>
+			.btn {
+				display: block;
+				text-decoration: none;
+				background-color: #c31313;
+				padding: 5px;
+				margin: 5px;
+				max-width: 100px;
+				width: 100%;
+				text-align: center;
+				border: 1px solid #000;
+				color: #ffffff;
+			}
+			}
+			.overlay {
+				display: none;
+				height: 200px;
+				width: 200px;
+				border: solid 1px #acacac;
+				box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.5);
+				border-radius: 4px;
+			}
+			.disp-overlay {
+				display: block;
+			}
+		</style>
+	</head>
+	<body>
+		
+		
+		<a href="javascript:void(0)" class="btn btn1">Click</a>
+		<div class="overlay"></div>
+		<script>
+			
+			var carName = 'Honda City';
+			var number = 150;
+			var x = 5;
+			var y = 10;
+			var z = x + y;
+			var firstName = 'John',
+				lastName = 'Doe',
+				age = 35;
+			const dob = new Date('11/20/1990');
+			function calculateAge(date) {
+				var nowDate = new Date();
+				return (
+					Math.floor((nowDate - date) / (1000 * 60 * 60 * 24 * 365)) + ' years'
+				);
+			}
+			document.querySelector('.btn1').addEventListener('click', function(e) {
+				var ov = document.querySelector('.overlay');
+				if (ov.classList.contains('disp-overlay')) {
+					ov.classList.remove('disp-overlay');
+					ov.innerHTML = '';
+				} else {
+					ov.classList.add('disp-overlay');
+					ov.innerHTML =
+						'carName ' +
+						carName +
+						'<br>' +
+						'number ' +
+						number +
+						'<br>' +
+						'x:  ' +
+						x +
+						'  y:  ' +
+						y +
+						'  z=x+y  ' +
+						z +
+						'<br>' +
+						'firstName:- ' +
+						firstName +
+						'  lastName:- ' +
+						lastName +
+						'   age:- ' +
+						age +
+						'<br>' +
+						'dob:- ' +
+						dob +
+						'  age:-  ' +
+						calculateAge(dob);
+				}
+			});
+		</script>
+	</body>
+</html>
