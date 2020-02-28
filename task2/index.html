@@ -4,9 +4,13 @@
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<title>Document</title>
+		<link
+			href="https://fonts.googleapis.com/css?family=Roboto:400,500,700&display=swap"
+			rel="stylesheet"
+		/>
 		<style>
 			.btn {
-				display: block;
+				display: inline-block;
 				text-decoration: none;
 				background-color: #c31313;
 				padding: 5px;
@@ -17,32 +21,58 @@
 				border: 1px solid #000;
 				color: #ffffff;
 			}
-			.overlay {
+			.menu-btn:checked ~ .menu-icon .navicon {
 				display: none;
-/* 				height: 320px; */
-				width: 320px;
-				border: solid 1px #acacac;
-				box-shadow: 2px 2px 20px 0 rgba(0, 0, 0, 0.5);
-				border-radius: 4px;
-				padding:20px;
 			}
 			.disp-overlay {
 				display: block;
 			}
+			body {
+				font-family: 'Roboto', Arial, Helvetica, sans-serif;
+				background-color: #000;
+				color: #ffffff;
+			}
+			.comment {
+				color: green;
+			}
+			.keyword {
+				color: blueviolet;
+			}
 		</style>
 	</head>
 	<body>
-		
-		
-		<a href="javascript:void(0)" class="btn btn1">Click</a>
+		<p>
+			Create variable <a href="javascript:void(0)" class="btn btn1">Click</a>
+		</p>
+		<div class="variable-creation"></div>
+		<p>
+			Create function <a href="javascript:void(0)" class="btn btn2">Click</a>
+		</p>
+		<div class="function-creation"></div>
 		<div class="overlay"></div>
+		<script src="index.js"></script>
 		<script>
-			
 			var carName = 'Honda City';
+
 			var number = 150;
 			var x = 5;
 			var y = 10;
 			var z = x + y;
+			document.querySelector('.btn1').addEventListener('click', function(e) {
+				var varCreate = document.querySelector('.variable-creation');
+				varCreate.innerHTML =
+					"<p><span class='keyword'>var</span> carName;  <span class='comment'>// var declaration  here var is keyword</span></p> " +
+					"<p>carName = 'Honda City';  <span class='comment'>// initialization  'Honda City' is String </span></p>" +
+					"<p><span class='keyword'>var</span> number = 150;  <span class='comment'>// here 'number' is variable initialize to 150    </span></p>" +
+					"<p><span class='keyword'>var</span> x=5;  <span class='comment'>// here 'x' initialize  5    </span></p>" +
+					"<p><span class='keyword'>var</span> y=10;  <span class='comment'>// here 'y' initialize  10    </span></p>" +
+					"<p><span class='keyword'>var</span> z=x+y;  <span class='comment'>// here '+'  addition operator & '=' is assignment operator ,value of 'x' and 'y' added and assigned to z   </span></p>" +
+					"<p><span class='keyword'>var</span> firstName = 'John',lastName = 'Doe',age = 35;  <span class='comment'>// here multiple variable are declarate and initailize in one line ',' is use to separate each variable</span></p>" +
+					"<p><span class='comment'>//to check value of above variable open developer tool(F12) and in console type variable name</span></p>" +
+					"<p><span class='keyword'>const</span> dob = new Date('11/20/1990');  <span class='comment'>// const is keyword , 'dob' is constant variable assigned to  new Date('11/20/1990'). Value of 'dob'  won't change </span></p>" +
+					"<p>dob = 10 <span class='comment'>// This is invalid  </span></p>";
+			});
+
 			var firstName = 'John',
 				lastName = 'Doe',
 				age = 35;
@@ -53,39 +83,22 @@
 					Math.floor((nowDate - date) / (1000 * 60 * 60 * 24 * 365)) + ' years'
 				);
 			}
-			document.querySelector('.btn1').addEventListener('click', function(e) {
-				var ov = document.querySelector('.overlay');
-				if (ov.classList.contains('disp-overlay')) {
-					ov.classList.remove('disp-overlay');
-					ov.innerHTML = '';
-				} else {
-					ov.classList.add('disp-overlay');
-					ov.innerHTML =
-						'carName ' +
-						carName +
-						'<br>' +
-						'number ' +
-						number +
-						'<br>' +
-						'x:  ' +
-						x +
-						'  y:  ' +
-						y +
-						'  z=x+y  ' +
-						z +
-						'<br>' +
-						'firstName:- ' +
-						firstName +
-						'  lastName:- ' +
-						lastName +
-						'   age:- ' +
-						age +
-						'<br>' +
-						'dob:- ' +
-						dob +
-						'  age:-  ' +
-						calculateAge(dob);
-				}
+			document.querySelector('.btn2').addEventListener('click', function(e) {
+				var varFunc = document.querySelector('.function-creation');
+				varFunc.innerHTML =
+					"<p><span class='keyword'>function</span> functionName(param){</p>" +
+					"<p><span class='comment'>// 'function' is keyword</span></p>" +
+					"<p><span class='comment'>// functionName is user defined name to function</span></p>" +
+					"<p><span class='comment'>// 'param' are parameter passed to function  </span></p>" +
+					"<p><span class='comment'>// function body warp inside {...}</span></p>" +
+					'<p>}</p>' +
+					"<p><span class='keyword'>function</span> calculateAge(date) {</p>" +
+					"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span class='keyword'>var</span> nowDate = <span class='keyword'>new</span> Date();</p>" +
+					"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span  class='keyword'>return</span> (</p>" +
+					"<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Math.floor((nowDate - date) / (1000 * 60 * 60 * 24 * 365)) + ' years'</p>" +
+					'<p>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;);</p>' +
+					'<p>}</p>' +
+					"<p><span class='comment'>//to use this function 'calculateAge' open developer tool(F12) and in console type calculateAge(new Date('01/21/2012'))  </span></p>";
 			});
 		</script>
 	</body>
